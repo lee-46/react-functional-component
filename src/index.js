@@ -13,6 +13,13 @@ const App = function () {
           Are you sure you want to approve?
         </div>
       </ApproveCard>
+      {/** We can reuse and make a component dynamic by passing Another component as child and accessing through props.children
+       * You can either pass single or multiple as components or plain text or JSX as children
+       * Your core Component remains same, wherein you pass different components as required
+       * Here you can see
+       *    Above we are passing JSX as a confirmation message
+       *    Below we are displaying a Component
+       */}
       <ApproveCard>
         <CommentDetail
           author="Steve"
@@ -20,6 +27,7 @@ const App = function () {
           comment="Nice Blog post!"
           avatar={faker.image.image()}
         />
+        {/** FAKER is an API package used to randomly generate fake data */}
       </ApproveCard>
       <ApproveCard>
         <CommentDetail
