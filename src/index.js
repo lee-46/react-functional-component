@@ -1,26 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import faker from 'faker';
+import React from "react";
+import ReactDOM from "react-dom";
+import faker from "faker";
+import CommentDetail from "./CommentDetail";
+import ApproveCard from "./ApproveCard";
 
-const App = function() {
-    return (
-      <div className="ui container comments">
-          <div className="comment">
-            <a href="/" className="avatar">
-                <img alt="avatar" src={faker.image.image()}/>
-            </a>
-            <div className="content">
-                <a className="author" href="/">
-                    Steve
-                </a>
-                <div className="metadata">
-                    <span className="date">Today at 6:30PM</span>
-                </div>
-                <div className="text">Nice blog post!</div>
-            </div>
-          </div>
-      </div>  
-    );
-}
+const App = function () {
+  return (
+    <div className="ui container comments">
+      <ApproveCard>
+        <div>
+          <h2>Warning!</h2>
+          Are you sure you want to approve?
+        </div>
+      </ApproveCard>
+      <ApproveCard>
+        <CommentDetail
+          author="Steve"
+          timeAgo="Today at 6:30PM"
+          comment="Nice Blog post!"
+          avatar={faker.image.image()}
+        />
+      </ApproveCard>
+      <ApproveCard>
+        <CommentDetail
+          author="Jobs"
+          timeAgo="Yesterday at 2:00AM"
+          comment="Attention to details is must"
+          avatar={faker.image.image()}
+        />
+      </ApproveCard>
+      <ApproveCard>
+        <CommentDetail
+          author="Zen"
+          timeAgo="10/10/2021 at 1:00PM"
+          comment="Being ZEN always changes the view towards world around you."
+          avatar={faker.image.image()}
+        />
+      </ApproveCard>
+    </div>
+  );
+};
 
-ReactDOM.render(<App/>, document.querySelector('#root'));
+ReactDOM.render(<App />, document.querySelector("#root"));
